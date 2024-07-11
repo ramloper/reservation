@@ -40,7 +40,11 @@ public class Member extends Timestamped {
     @Column(unique = true, length = 60)
     private String email;
 
-    private String role;
+    private String profile;
+
+    private MemberRole role;
+
+    private String registrationId;
 
     private boolean smsEnabled;
 
@@ -51,4 +55,8 @@ public class Member extends Timestamped {
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Review> reviewList;
+
+    public enum MemberRole{
+        USER
+    }
 }
