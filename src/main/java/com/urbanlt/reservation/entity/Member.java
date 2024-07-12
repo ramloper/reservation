@@ -19,10 +19,10 @@ public class Member extends Timestamped {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = 20)
+    @Column(nullable = false,unique = true, length = 20)
     private String loginId;
 
-    @Column(nullable = false, length = 60)
+    @Column(nullable = false)
     private String password;
 
     @Column(nullable = false)
@@ -57,6 +57,6 @@ public class Member extends Timestamped {
     private List<Review> reviewList;
 
     public enum MemberRole{
-        USER
+        USER, PREMIUM
     }
 }

@@ -1,15 +1,15 @@
 package com.urbanlt.reservation.service;
 
+import com.urbanlt.reservation.dto.member.MemberRequestDTO;
 import com.urbanlt.reservation.entity.Member;
-import com.urbanlt.reservation.repository.MemberRepository;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
 
-@Service
-@RequiredArgsConstructor
-public class MemberService {
+import java.net.http.HttpHeaders;
 
-    private final MemberRepository memberRepository;
+public interface MemberService {
+    Member getMemberById(Long id);
+    Member getMemberByEmail(String email);
+    Member getMemberList(MemberRequestDTO.GetList request);
+    HttpHeaders login(MemberRequestDTO.Login request);
 
-
+    void logout();
 }
