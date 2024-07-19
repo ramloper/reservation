@@ -1,6 +1,14 @@
 package com.urbanlt.reservation.core.enums;
 
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+
+@Getter
+@RequiredArgsConstructor
 public enum Terminal {
-    PHONE(0),PC(1),PAD(2),;
-    Terminal(int i){}
+    PHONE("PHONE"),
+    PC("PC"),
+    PAD("PAD")
+    ;
+    private final String terminalName;
 }

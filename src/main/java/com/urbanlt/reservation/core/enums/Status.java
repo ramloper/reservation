@@ -1,11 +1,15 @@
 package com.urbanlt.reservation.core.enums;
 
-public enum Status {
-    WAIT(0),
-    CONFIRMED(1),
-    COMPLETE(2),
-    CANCEL(3);
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
-    Status(int i) {
-    }
+@Getter
+@RequiredArgsConstructor
+public enum Status {
+    WAIT("WAIT"),
+    CONFIRMED("CONFIRMED"),
+    COMPLETE("COMPLETE"),
+    CANCEL("CANCEL"),;
+
+    private final String statusName;
 }

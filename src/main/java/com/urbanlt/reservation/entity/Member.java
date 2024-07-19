@@ -42,6 +42,8 @@ public class Member extends Timestamped {
 
     private String profile;
 
+    @Enumerated(value = EnumType.STRING)
+    @Column(nullable = false)
     private MemberRole role;
 
     private String registrationId;
@@ -56,7 +58,14 @@ public class Member extends Timestamped {
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Review> reviewList;
 
+    @Getter
+    @RequiredArgsConstructor
     public enum MemberRole{
-        USER, PREMIUM
+        USER("USER"),
+        PREMIUM("PREMIUM")
+        ;
+
+        private final String memberRoleName;
+
     }
 }

@@ -1,8 +1,13 @@
 package com.urbanlt.reservation.core.enums;
 
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+
+@Getter
+@RequiredArgsConstructor
 public enum Gender {
-    FEMALE(0), MALE(1)
+    FEMALE("FEMALE"),
+    MALE("MALE"),
     ;
-    Gender(int i) {
-    }
+    private final String genderName;
 }
