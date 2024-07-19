@@ -22,29 +22,6 @@ public class MemberRepositoryTest {
     private BCryptPasswordEncoder passwordEncoder;
 
 
-    @BeforeEach
-    public void setUp() throws Exception {
-        String rawPassword = "Rladnfka12!@";
-        String encodedPassword = "encodedPassword"; // 원하는 인코딩된 비밀번호로 변경
-        when(passwordEncoder.encode(rawPassword)).thenReturn(encodedPassword);
-        Member member = Member.builder()
-                .id(1L)
-                .loginId("test")
-                .password(passwordEncoder.encode(rawPassword))
-                .memberName("김우람")
-                .phoneNumber("01012341234")
-                .birthDate("19940906")
-                .gender(Gender.MALE)
-                .email("rla7360@nate.com")
-                .profile("ttt")
-                .role(Member.MemberRole.USER)
-                .registrationId("nomal")
-                .smsEnabled(true)
-                .emailEnabled(true)
-                .build();
-        memberRepository.save(member);
-    }
-
     @Nested
     @DisplayName("회원찾기")
     class findMember{
